@@ -1,9 +1,11 @@
 import { Link, NavLink } from "react-router-dom"
 import Logo from "../assets/images/logo new.png"
+import { useCart } from "../context/CartContext"
 
 
 
 const Header = () => {
+    const {cartList} = useCart();
   return (
     <header>
         <div className="flex justify-between items-center text-xl font-mono border-b-2 border-slate-200 rounded-md">
@@ -17,7 +19,7 @@ const Header = () => {
                 <NavLink className= "hover:bg-stone-200 rounded p-2" to = {"/cart"}>Cart</NavLink>
             </nav>
             <Link  to={"/cart"}>
-                <span className= "hover:bg-stone-200 rounded p-2 mr-6">Cart :2</span>
+                <span className= "hover:bg-stone-200 rounded p-2 mr-6">Cart :{cartList.length}</span>
             </Link>
 
 
